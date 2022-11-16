@@ -1,0 +1,44 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+.interval-container {
+  display: flex;
+  align-items: center;
+  margin: 0 40px;
+}
+
+.interval-main-container {
+  display: flex;
+}
+
+button {
+  padding: 5px 12px;
+  margin: 0 10px;
+  height: 25px;
+  background-color: black;
+  color: whitesmoke;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.interval-container-length {
+  font-size: 2rem;
+  margin: 0 10px;
+}
+
+h3 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+}

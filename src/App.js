@@ -14,8 +14,10 @@ class App extends React.Component {
     return (
       <main>
         <h1>Pomodora Clock</h1>
-        <BreakInterval breakInterval={this.state.breakLength} />
-        <SessionLength sessionLength={this.state.sessionLength} />
+        <section className="interval-main-container">
+          <BreakInterval breakInterval={this.state.breakLength} />
+          <SessionLength sessionLength={this.state.sessionLength} />
+        </section>
         <Timer timerMinute={this.state.timerMinute} />
       </main>
     );
