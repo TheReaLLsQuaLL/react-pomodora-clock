@@ -12,7 +12,7 @@ class App extends React.Component {
     return (
       <main>
         <h1>Pomodora Clock</h1>
-        <BreakInterval BreakInterval={this.state.breakLength} />
+        <BreakInterval breakInterval={this.state.breakLength} />
       </main>
     );
   }
