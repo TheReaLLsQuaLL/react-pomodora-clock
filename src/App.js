@@ -8,13 +8,36 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = { breakLength: 5, sessionLength: 25, timerMinute: 25 };
+    this.onIncreaseBreakLength = this.onIncreaseBreakLength.bind(this);
+    this.onDecreaseBreakLength = this.onDecreaseBreakLength.bind(this);
   }
+
+  onIncreaseBreakLength() {
+    this.setState((prevState) => {
+      return {
+        breakLength: prevState.breakLength + 1,
+      };
+    });
+  }
+
+  onDecreaseBreakLength() {
+    this.setState((prevState) => {
+      return {
+        breakLength: prevState.breakLength - 1,
+      };
+    });
+  }
+
   render() {
     return (
       <main>
         <h1>Pomodora Clock</h1>
         <section className="interval-main-container">
-          <BreakInterval breakInterval={this.state.breakLength} />
+          <BreakInterval
+            breakInterval={this.state.breakLength}
+            increaseBreak={this.onIncreaseBreakLength}
+            decreaseBreak={this.onDecreaseBreakLength}
+          />
           <SessionLength sessionLength={this.state.sessionLength} />
         </section>
         <Timer timerMinute={this.state.timerMinute} />
