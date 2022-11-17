@@ -20,6 +20,7 @@ class App extends React.Component {
     this.onUpdateTimerMinute = this.onUpdateTimerMinute.bind(this);
     this.onToggleInterval = this.onToggleInterval.bind(this);
     this.onReset = this.onReset.bind(this);
+    this.onPlayTimer = this.onPlayTimer.bind(this);
   }
 
   onIncreaseBreakLength() {
@@ -80,6 +81,12 @@ class App extends React.Component {
     });
   }
 
+  onPlayTimer(isPlay) {
+    this.setState({
+      isPlay: isPlay,
+    });
+  }
+
   render() {
     return (
       <main>
@@ -104,6 +111,8 @@ class App extends React.Component {
           updateTimerMinute={this.onUpdateTimerMinute}
           toggleInterval={this.onToggleInterval}
           reset={this.onReset}
+          onPlayTimer={this.onPlayTimer}
+          isPlay={this.state.isPlay}
         />
       </main>
     );

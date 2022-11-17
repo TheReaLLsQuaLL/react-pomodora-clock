@@ -20,9 +20,19 @@ const BreakInterval = (props) => {
     <section>
       <h3>Break Length</h3>
       <section className="interval-container">
-        <button onClick={decreaseCounter}>Down</button>
+        <button
+          disabled={props.isPlay === true ? "disabled" : ""}
+          onClick={decreaseCounter}
+        >
+          Down
+        </button>
         <p className="interval-container-length">{props.breakInterval}</p>
-        <button onClick={increaseCounter}>Up</button>
+        <button
+          disabled={props.isPlay === true ? "disabled" : ""}
+          onClick={increaseCounter}
+        >
+          Up
+        </button>
       </section>
     </section>
   );

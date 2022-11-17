@@ -12,6 +12,7 @@ class Timer extends React.Component {
 
   play() {
     let intervalId = setInterval(this.decreaseTimer, 1000);
+    this.props.onPlayTimer(true);
     this.setState({
       intervalId: intervalId,
     });
@@ -30,11 +31,13 @@ class Timer extends React.Component {
             this.setState({
               isSession: true,
             });
-            this.props.toggleInterval(this.state.sessionLength);
+            this.props.toggleInterval(this.props.sessionLength);
           }
+        } else {
+          this.props.updateTimerMinute();
+          this.setState({ timerSecond: 59 });
         }
-        this.props.updateTimerMinute();
-        this.setState({ timerSecond: 59 });
+
         break;
       default:
         this.setState((prevState) => {
@@ -48,13 +51,16 @@ class Timer extends React.Component {
 
   stop() {
     clearInterval(this.state.intervalId);
+    this.props.onPlayTimer(false);
   }
 
   reset() {
     this.stop();
     this.props.reset();
+    this.props.onPlayTimer(false);
     this.setState({
       timerSecond: 0,
+      isSession: true,
     });
   }
 
@@ -74,7 +80,12 @@ class Timer extends React.Component {
           </span>
         </section>
         <section className="timer-actions">
-          <button onClick={this.play}>Play</button>
+          <button
+            disabled={this.props.isPlay === true ? "disabled" : ""}
+            onClick={this.play}
+          >
+            Play
+          </button>
           <button onClick={this.stop}>Stop</button>
           <button onClick={this.reset}>Reset</button>
         </section>
