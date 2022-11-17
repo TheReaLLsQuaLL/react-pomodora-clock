@@ -22,7 +22,7 @@ h1 {
 }
 
 button {
-  padding: 5px 12px;
+  padding: 5px 10px;
   margin: 0 10px;
   height: 25px;
   background-color: black;
@@ -30,6 +30,8 @@ button {
   border: none;
   cursor: pointer;
   outline: none;
+  border-radius: 2px;
+  width: 70px;
 }
 
 .interval-container-length {
@@ -57,4 +59,9 @@ h3 {
 
 .timer {
   font-size: 2rem;
+}
+
+.timer-actions {
+  margin-top: 20px;
+  text-align: center;
 }
