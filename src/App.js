@@ -7,7 +7,12 @@ import Timer from "./components/Timer";
 class App extends React.Component {
   constructor() {
     super();
-    this.state = { breakLength: 5, sessionLength: 25, timerMinute: 25 };
+    this.state = {
+      breakLength: 5,
+      sessionLength: 25,
+      timerMinute: 25,
+      isPlay: false,
+    };
     this.onIncreaseBreakLength = this.onIncreaseBreakLength.bind(this);
     this.onDecreaseBreakLength = this.onDecreaseBreakLength.bind(this);
     this.onIncreaseSessionLength = this.onIncreaseSessionLength.bind(this);
@@ -84,11 +89,13 @@ class App extends React.Component {
             breakInterval={this.state.breakLength}
             increaseBreak={this.onIncreaseBreakLength}
             decreaseBreak={this.onDecreaseBreakLength}
+            isPlay={this.state.isPlay}
           />
           <SessionLength
             sessionLength={this.state.sessionLength}
             increaseSession={this.onIncreaseSessionLength}
             decreaseSession={this.onDecreaseSessionLength}
+            isPlay={this.state.isPlay}
           />
         </section>
         <Timer
